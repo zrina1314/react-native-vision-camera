@@ -18,6 +18,8 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.camera.video.Recorder
 import androidx.camera.video.VideoCapture
 import androidx.lifecycle.Lifecycle
+import com.google.android.gms.common.ConnectionResult
+import com.google.android.gms.common.GoogleApiAvailability
 import com.mrousavy.camera.core.extensions.*
 import com.mrousavy.camera.core.types.CameraDeviceFormat
 import com.mrousavy.camera.core.types.Torch
@@ -221,7 +223,8 @@ internal fun CameraSession.configureOutputs(configuration: CameraConfiguration) 
   if (codeScannerConfig != null) {
     Log.i(CameraSession.TAG, "Creating CodeScanner output...")
     val analyzer = ImageAnalysis.Builder().build()
-    val pipeline = CodeScannerPipeline(codeScannerConfig.config, callback)
+    val isSupportGoogle = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(context) === ConnectionResult.SUCCESS
+    val pipeline = CodeScannerPipeline(isSupportGoogle,codeScannerConfig.config, callback)
     analyzer.setAnalyzer(CameraQueues.analyzerExecutor, pipeline)
     codeScannerOutput = analyzer
   } else {

@@ -30,6 +30,7 @@ import com.mrousavy.camera.frameprocessors.Frame
 import java.io.Closeable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import com.google.zxing.Result
 
 class CameraSession(internal val context: Context, internal val callback: Callback) :
   Closeable,
@@ -221,5 +222,6 @@ class CameraSession(internal val context: Context, internal val callback: Callba
     fun onOutputOrientationChanged(outputOrientation: Orientation)
     fun onPreviewOrientationChanged(previewOrientation: Orientation)
     fun onCodeScanned(codes: List<Barcode>, scannerFrame: CodeScannerFrame)
+    fun onCodeScannedZxing(codes: List<Result>, scannerFrame: CodeScannerFrame)
   }
 }

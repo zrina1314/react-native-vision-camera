@@ -8,6 +8,7 @@ import android.view.ScaleGestureDetector
 import android.widget.FrameLayout
 import androidx.camera.view.PreviewView
 import com.google.mlkit.vision.barcode.common.Barcode
+import com.google.zxing.Result
 import com.mrousavy.camera.core.CameraConfiguration
 import com.mrousavy.camera.core.CameraSession
 import com.mrousavy.camera.core.CodeScannerFrame
@@ -345,6 +346,10 @@ class CameraView(context: Context) :
 
   override fun onCodeScanned(codes: List<Barcode>, scannerFrame: CodeScannerFrame) {
     invokeOnCodeScanned(codes, scannerFrame)
+  }
+
+  override fun onCodeScannedZxing(codes: List<Result>, scannerFrame: CodeScannerFrame) {
+    invokeOnCodeScannedZxing(codes, scannerFrame)
   }
 
   override fun onAverageFpsChanged(averageFps: Double) {
