@@ -1,3 +1,25 @@
+
+# 说明
+
+这个库是直接对 react-native-vision-camera 进行的二次开发，主要是为了鸿蒙手机没有安装 Google mlkit 库，导致扫码功能无法使用。
+
+原本可以使用 Frame Processors 来实现。
+但这个Frame Processors 的 'worklet' 功能经常导致Android 编译失败。
+所以放权了使用 Frame Processors ，直接对源码进行了修改，使其自动识别(根据设备是否有安装Google服务)是用 mlkit 还是使用 zxing 库。
+
+错误信息：
+https://github.com/mrousavy/react-native-vision-camera/issues/3425#issuecomment-2765880379
+
+
+Frame Processors功能的zxing库：vision-camera-zxing (https://github.com/xulihang/vision-camera-zxing)
+
+此仓库的代码 react-native-vision-camera + vision-camera-zxing 的整合版。
+
+
+下面是原始的MD文件内容
+<br>
+
+
 <a href="https://margelo.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./docs/static/img/banner-dark.png" />
