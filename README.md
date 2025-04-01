@@ -15,11 +15,12 @@ Frame Processors功能的zxing库：vision-camera-zxing (https://github.com/xuli
 
 此仓库的代码 react-native-vision-camera + vision-camera-zxing 的整合版。
 
+只是在安装库时使用,其他的功能和原来的一样。
+```
+yarn add react-native-vision-camera-zxing
+```
 
-下面是原始的MD文件内容
-<br>
-
-
+# 下面是原始的MD文件内容
 <a href="https://margelo.com">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./docs/static/img/banner-dark.png" />
